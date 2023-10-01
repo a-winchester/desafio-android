@@ -7,13 +7,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.picpay.desafio.android.ui.MainActivityViewModel
 import com.picpay.desafio.android.ui.UserListAdapter
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var progressBar: ProgressBar
     private lateinit var adapter: UserListAdapter
-    private val viewModel = MainActivityViewModel()
+    private val viewModel: MainActivityViewModel by viewModel()
+
 
 
     override fun onResume() {

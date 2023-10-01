@@ -4,13 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.picpay.desafio.android.data.NetworkModule
+import com.picpay.desafio.android.domain.GetUsersUseCase
 import com.picpay.desafio.android.domain.User
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
-class MainActivityViewModel: ViewModel() {
+class MainActivityViewModel(private val getUsersUseCase: GetUsersUseCase): ViewModel() {
     private val _users = MutableLiveData<List<User>?>()
     val users: LiveData<List<User>?>
         get() = _users
@@ -22,14 +20,6 @@ class MainActivityViewModel: ViewModel() {
     }
 
     private suspend fun getUsers() {
-        try {
-            val users = withContext(Dispatchers.IO) {
-                NetworkModule.picPayService.getUsers()
-            }
-
-            _users.value = users
-        } catch (e: Exception) {
-            // Handle exceptions
-        }
+        _users.value = getUsersUseCase.execute()
     }
 }
