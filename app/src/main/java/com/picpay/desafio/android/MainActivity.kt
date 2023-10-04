@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        mainViewModel.fetchUsers()
+        mainViewModel.getUsers()
 
-        mainViewModel.users.observe(this, Observer { users ->
+        mainViewModel.userList.observe(this, Observer { users ->
             users?.let {
                 adapter.users = users
                 progressBar.visibility = View.GONE
