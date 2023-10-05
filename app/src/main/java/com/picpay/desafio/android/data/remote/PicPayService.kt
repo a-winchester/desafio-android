@@ -1,4 +1,4 @@
-package com.picpay.desafio.android.data
+package com.picpay.desafio.android.data.remote
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder

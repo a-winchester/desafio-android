@@ -1,7 +1,7 @@
-package com.picpay.desafio.android.data
+package com.picpay.desafio.android.data.remote
 
 import com.picpay.desafio.android.domain.User
 
-interface UsersRepository {
+interface RemoteUsersRepository {
     suspend fun getUsers(): List<User>
 }

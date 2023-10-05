@@ -1,8 +1,8 @@
 package com.picpay.desafio.android.domain
 
-import com.picpay.desafio.android.data.UsersRepository
+import com.picpay.desafio.android.data.remote.RemoteUsersRepository
 
-class GetUsersUseCase(private val repository: UsersRepository) {
+class GetUsersFromRemoteUseCase(private val repository: RemoteUsersRepository) {
 
     suspend fun execute(): List<User> {
         return try {
