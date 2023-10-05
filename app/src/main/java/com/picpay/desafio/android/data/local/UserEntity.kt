@@ -6,16 +6,17 @@ import com.picpay.desafio.android.domain.User
 
 @Entity(tableName = "user_table")
 data class UserEntity(
+    @PrimaryKey(autoGenerate = true) val id: Long = 0,
     val img: String,
     val name: String,
-    @PrimaryKey val id: Int,
+    val apiId: Int,
     val username: String
 ) {
     fun toUser(): User {
         return User(
             img = img,
             name = name,
-            id = id,
+            id = apiId,
             username = username
         )
     }

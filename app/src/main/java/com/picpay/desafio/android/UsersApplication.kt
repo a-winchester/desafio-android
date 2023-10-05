@@ -32,8 +32,7 @@ class UsersApplication: Application() {
             single { GetUsersFromRemoteUseCase(get()) }
             single { GetUsersFromLocalUseCase(get()) }
             single { SaveUsersUseCase(get()) }
-//            viewModel { MainActivityViewModel(get(), get(), get()) }
-            viewModel { MainActivityViewModel(get()) }
+            viewModel { MainActivityViewModel(get(), get(), get()) }
         }
 
         startKoin {
